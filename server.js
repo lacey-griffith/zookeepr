@@ -34,6 +34,7 @@ function filterByQuery(query, animalsArray){
 }
 function findbyID(id, animalsArray){
     const result = animalsArray.filter(animal => animal.id === id)[0];
+    return result
 }
 
 
