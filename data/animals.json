@@ -108,6 +108,25 @@
         "loving"
       ],
       "id": "10"
+    },
+    {
+      "name": "Larry",
+      "species": "lemur",
+      "diet": "omnivore",
+      "personalityTraits": [
+        "hungry"
+      ],
+      "id": "11"
+    },
+    {
+      "name": "Lola",
+      "species": "koala",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "hungry",
+        "sleepy"
+      ],
+      "id": "12"
     }
   ]
 }
