@@ -8,6 +8,8 @@ const path = require('path')
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
+app.use(express.static('public'));
+
 const {animals} = require('./data/animals')
 
 
