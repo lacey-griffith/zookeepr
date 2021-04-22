@@ -2,7 +2,8 @@ const express = require('express')
 const PORT = process.env.PORT || 3001;
 const app = express()
 
-const fs = require('fs')
+const fs = require('fs');
+const { type } = require('os');
 const path = require('path')
 
 app.use(express.urlencoded({extended: true}))
@@ -56,18 +57,24 @@ function createNewAnimal(body, animalsArray) {
 }
 
 function validateAnimal(animal) {
-    if(animal.name || typeof animal.name !== 'string') {
-        return false
-    }
-    if(animal.species || typeof animal.species !== 'string') {
-        return false
-    }
-    if(animal.diet || typeof animal.diet !== 'string') {
-        return false
-    }
-    if(animal.personalityTraits || typeof animal.personalityTraits !== 'string') {
-        return false
-    }
+    // console.log('error name', animal.name)
+    // console.log(typeof animal.name)
+    // if(animal.name || typeof animal.name !== 'string') {
+    //     console.log('error name', animal.name)
+    //     return false
+    // }
+    // if(animal.species || typeof animal.species !== 'string') {
+    //     console.log('error species')
+    //     return false
+    // }
+    // if(animal.diet || typeof animal.diet !== 'string') {
+    //     console.log('error diet')
+    //     return false
+    // }
+    // if(animal.personalityTraits || typeof animal.personalityTraits !== 'string') {
+    //     console.log('error traits')
+    //     return false
+    // }
     return true;
 }
 
@@ -99,7 +106,16 @@ app.post('/api/animals', (req, res) => {
 });
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
-})
+});
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/zookeepers.html'));
+});
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}`);
 })

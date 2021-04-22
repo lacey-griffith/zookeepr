@@ -127,6 +127,35 @@
         "sleepy"
       ],
       "id": "12"
+    },
+    {
+      "name": "Sophie",
+      "species": "doggo",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "hungry",
+        "zany",
+        "loving"
+      ],
+      "id": "13"
+    },
+    {
+      "name": "Felix",
+      "species": "cat",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "hungry"
+      ],
+      "id": "14"
+    },
+    {
+      "name": "Josie",
+      "species": "cat",
+      "diet": "piscivore",
+      "personalityTraits": [
+        "zany"
+      ],
+      "id": "15"
     }
   ]
 }
