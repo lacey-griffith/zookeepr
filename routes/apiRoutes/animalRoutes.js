@@ -9,6 +9,7 @@ router.get('/animals', (req, res) => {
     }
     res.json(results);
 });
+
 router.get('/animals/:id', (req,res) => {
     const result = findById(req.params.id, animals);
     if(result){
@@ -17,6 +18,7 @@ router.get('/animals/:id', (req,res) => {
         res.send(404)
     }
 })
+
 router.post('/animals', (req, res) => {
     req.body.id = animals.length.toString();
     if(!validateAnimal(req.body)) {
