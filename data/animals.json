@@ -156,6 +156,16 @@
         "zany"
       ],
       "id": "15"
+    },
+    {
+      "name": "Luna",
+      "species": "cat",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "loving",
+        "goofy"
+      ],
+      "id": "16"
     }
   ]
 }

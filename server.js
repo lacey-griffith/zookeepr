@@ -1,19 +1,14 @@
-const express = require('express')
-const PORT = process.env.PORT || 3001;
-const app = express()
-
 const fs = require('fs');
-const { type } = require('os');
-const path = require('path')
+const path = require('path');
+const express = require('express');
+const { animals } = require('./data/animals');
 
-app.use(express.urlencoded({extended: true}))
-app.use(express.json())
+const PORT = process.env.PORT || 3001;
+const app = express();
 
 app.use(express.static('public'));
-
-const {animals} = require('./data/animals')
-
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 function filterByQuery(query, animalsArray){
     let personalityTraitsArray = [];
@@ -45,7 +40,6 @@ function findbyID(id, animalsArray){
     const result = animalsArray.filter(animal => animal.id === id)[0];
     return result
 }
-
 function createNewAnimal(body, animalsArray) {
     const animal = body;
     animalsArray.push(animal)
@@ -55,26 +49,19 @@ function createNewAnimal(body, animalsArray) {
     );
     return animal;
 }
-
 function validateAnimal(animal) {
-    // console.log('error name', animal.name)
-    // console.log(typeof animal.name)
-    // if(animal.name || typeof animal.name !== 'string') {
-    //     console.log('error name', animal.name)
-    //     return false
-    // }
-    // if(animal.species || typeof animal.species !== 'string') {
-    //     console.log('error species')
-    //     return false
-    // }
-    // if(animal.diet || typeof animal.diet !== 'string') {
-    //     console.log('error diet')
-    //     return false
-    // }
-    // if(animal.personalityTraits || typeof animal.personalityTraits !== 'string') {
-    //     console.log('error traits')
-    //     return false
-    // }
+    if(!animal.name || typeof animal.name !== 'string') {
+         return false
+     }
+    if(!animal.species || typeof animal.species !== 'string') {
+         return false
+     }
+    if(!animal.diet || typeof animal.diet !== 'string') {
+        return false
+    }
+    if(!animal.personalityTraits || !Array.isArray(animal.personalityTraits)) {
+        return false
+    }
     return true;
 }
 
